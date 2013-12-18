@@ -1,0 +1,6 @@
+out_file proba.out
+run_type analyze
+subbase condseq
+cctaadir all-clib0507
+libaadir /home/wiktor/projekty/aktualne/kontyngencja/50-nonred/sekwencje-all/all-lib0507/sek-str
+inform 0

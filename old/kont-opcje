@@ -1,0 +1,9 @@
+window 4
+out_file proba.out
+run_type define
+CTtype normseq
+inpseq_list lista
+inpseq_dir fasta_seq
+inpseq_list
+libaadir proba1_seq
+libsadir proba1_str

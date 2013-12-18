@@ -1,0 +1,45 @@
+Program kontyngent generuje tablice kontyngencji sekwencja/struktura. 
+
+W oparciu o sekwencje AA i strukture 3D generuje motywy sekwencyjne oraz odpowiadajace tym samym fragmentom motywy strukturalne reprezentujace wczesne etapy fałdowania. 
+Struktura opisana jest za pomoca alfabetu siedmioliterowego.
+
+Znalezione motywy sa zliczane. Po przeanalizowaniu wszystkich danych bialek program zapisuje tablice kontyngencji reprezentujaca czestosci wystapienia okreslonej pary sekwencja struktura. 
+Dla słow skladajacyhc sie z 4 liter dostepnych jest 7^4 = 2401 motywów strukturalnych, oraz 20^4 = 160000 motywow sekwencyjnych
+
+Tabela kontyngencji zapisana jest w postaci katalogow ktorych nazmwy odpowiadaja 1 literze motywu sekwencyjnego. Wewnatrz katalogu znajduja sie pliki o nazwach odpowiadajacym calemu motywowi, np A/AAAA; A/ABAC itd.
+W każdym pliku wypisane są motywy strukturalne ktorym odpowiada dany motyw sekwencyjny
+
+Parametry uzycia:
+
+out_file #nazwa pliku wynikowego
+
+run_type:
+define #definicja tablic
+	CTtype:	
+	normseq #tworzy TK wzgledem AA. Szuka motywow strukturalnych (wiersze) ktore odpowiadaja sekwencyjnym (kolumny) i wrzuca je do katalogow osobno dla kazdego AA
+	normstr #tworzy TK wzgledem sekwencji strukturalnej. Szuka motywow sekwencyjnych (wiersze) ktore odpowiadaja strukturalnym (kolumny) i wrzuca je do katalogow osobno dla kazdej litery alfabetu strukturalnego
+	inpseq_list #nazwa pliku z lista sekwencji
+	inpseq_dir #nazwa katalogu z sekwencjami
+	window 4 #szerokosc okna analizy sekwencji
+	libaadir #nazwa katalogu dla tablicy AAvsSA - do utworzenia
+	libsadir #nazwa katalogu dla tablicy SAvsAA - do utworzenia
+
+analyze #analiza istniejacych tablic
+	inform #obliczenia entropii informacji (dla run_type=analyze)
+	se_cout [SE_AA-columns.dat] #pliki do zapisu entropii
+	se_rout [SE_SA-rows.dat] 
+	
+	subbase: #tworzy podbazy na podstawie wczesniej zdefiniowanej TK (dla run_type=analyze)
+	limit #redukcja wymiaru
+	window 4 #szerokosc okna analizy sekwencji
+		limit_row: 
+		SAletters	#ilosc wystapien danej litery w motywie
+		limit_col:	
+		hydrophob	#ilosc wystapien aminokwasu hydrophob w motywie
+	condseq #tablice warunkowe tworzone na podstawie tablicy zwyklej
+		libaadir #nazwa katalogu dla tablicy AAvsSA - do utworzenia
+		cctaadir # katalog do umieszcenia tablicy warunkowej	
+
+
+
+

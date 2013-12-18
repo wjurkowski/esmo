@@ -1,0 +1,11 @@
+Main ouput file generated with perl script: kontyngent.pl (W.Jurkowski) 
+User: wiktor Time: Mon Feb  4 19:04:46 2008
+Selected parameters were used: 
+out_file = proba.out
+libaadir = /kredens/Prace/aktualne/kontyngencja/50-nonred/sekwencje-all/all-lib0507/sek-str
+subbase = condseq
+run_type = analyze
+inform = 0
+cctaadir = all-clib0507
+Programs run in analyze mode: Existing CT is beeing analyzed
+Run completed. Time: Mon Feb  4 19:18:29 2008
